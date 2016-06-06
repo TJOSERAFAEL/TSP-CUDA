@@ -28,7 +28,7 @@ permutaciones_shared_register_big(int *matriz,int dimension,int *soluciones,int 
     //Control de divergencia
     if((blockIdx.x * blockDim.x) + threadIdx.x < 10000)
     {
-            //Matriz de distancias en memoria compartida para mayor rendimiento
+            //Numeros aletorios en memoria shared para mayor rendimiento
             __shared__ unsigned int num_aleatorios[4000];
           
             __syncthreads();
@@ -132,7 +132,7 @@ permutaciones(int *matriz,int dimension,int *soluciones,int *num_aleatorios)
 	    int offset = (((blockIdx.x * blockDim.x) + threadIdx.x)*(dimension+1)); //Offset de la fila en la matriz soluciones
 	 
             
-	    //Realizamos 50000 permutaciones para intentar mejorar la solucion inicial
+	    //Realizamos 100000 permutaciones para intentar mejorar la solucion inicial
 	    for(int i = 0; i < 100000; i++)
 	    {
                
@@ -218,7 +218,7 @@ permutaciones_shared_register(int *d_matriz,int dimension,int *soluciones,int *n
 	 
             __syncthreads();
             
-	    //Realizamos 50000 permutaciones para intentar mejorar la solucion greedy
+	    //Realizamos 100000 permutaciones para intentar mejorar la solucion greedy
 	    for(int i = 0; i < 100000; i++)
 	    {
                
@@ -297,7 +297,7 @@ permutaciones_register(int *matriz,int dimension,int *soluciones,int *num_aleato
         
         __syncthreads();
         
-        //Realizamos 50000 permutaciones para intentar mejorar la solucion greedy
+        //Realizamos 100000 permutaciones para intentar mejorar la solucion greedy
         for(int i = 0; i < 100000; i++)
         {
             
