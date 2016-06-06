@@ -111,7 +111,7 @@ void permutaciones_50(int *matriz,int dimension,ciudad *ciudades,int ciudad_inic
         mi_solucion[i] = soluciones[offset+i];
     }
 
-    //Realizamos 50000 permutaciones para intentar mejorar la solucion
+    //Realizamos 100000 permutaciones para intentar mejorar la solucion
     for(int i = 0; i < 100000; i++)
     {
         int posicion_1 = num_aleatorios[i*2];
